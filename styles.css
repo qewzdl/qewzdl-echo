@@ -4,6 +4,7 @@ body {
     height: 100vh;
 
     font-family: "Outfit", serif;
+    overflow: hidden;
 }
 
 footer p {

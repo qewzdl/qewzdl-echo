@@ -4,17 +4,17 @@ export const config = {
         height: 700,
         backgroundColor: 'rgba(0, 0, 0)',
         lineWidthMin: 1,
-        lineWidthMax: 5,
+        lineWidthMax: 15,
         lineWidthChangeSpeed: 0.05,
         lineWidthIntervalMin: 100,
         lineWidthIntervalMax: 300,
         circleGradientStops: [
-            { offset: 0, color: 'white' },
-            { offset: 1, color: 'gray' }
+            { offset: 0, color: '#ffffff' },
+            { offset: 1, color: '#e0e0e0' }
         ],
         highVolumeGradientStops: [
-            { offset: 0, color: 'white' },
-            { offset: 1, color: 'gray' }
+            { offset: 0, color: '#FA0004' },
+            { offset: 1, color: '#FA0004' }
         ]
     },
     text: {
