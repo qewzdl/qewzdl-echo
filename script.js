@@ -47,16 +47,14 @@ let nextLineWidthInterval = getRandomLineWidthInterval();
 let alpha = 0.1;
 let increasing = true;
 let trackName = 'No Track Loaded';
-let currentFont = '16px Courier New'; // Начальный шрифт
+let currentFont = '16px Courier New';
 
-// Установка начальных значений
 volumeSlider.value = config.controls.initialVolume;
 radiusSlider.value = config.controls.initialRadius;
 rotationSpeedSlider.value = config.controls.initialRotationSpeed;
 canvas.width = config.canvas.width;
 canvas.height = config.canvas.height;
 
-// Загрузка аудио
 function loadAudio(file) {
     trackName = file.name.replace(/\.[^/.]+$/, "");
     if (audioContext) {
@@ -81,29 +79,24 @@ function loadAudio(file) {
     reader.readAsArrayBuffer(file);
 }
 
-// Изменение события выбора файлов
 audioFileInput.addEventListener('change', function (event) {
     const files = event.target.files;
     if (files.length > 0) {
-        updateAudioList(files); // Обновляем список
-        loadAudio(files[0]);    // Загружаем первый файл
+        updateAudioList(files);
+        loadAudio(files[0]); 
     }
 });
 
 defaultConfigButton.addEventListener('click', () => {
-    // Сбрасываем значения слайдеров
     volumeSlider.value = config.controls.initialVolume;
     radiusSlider.value = config.controls.initialRadius;
     rotationSpeedSlider.value = config.controls.initialRotationSpeed;
 
-    // Сбрасываем чекбокс
     showTrackNameCheckbox.checked = true;
 
-    // Сбрасываем шрифт
     fontSelector.value = `16px ${fonts[0]}`;
     currentFont = fontSelector.value;
 
-    // Применяем начальные значения
     if (gainNode) {
         gainNode.gain.value = config.controls.initialVolume;
     }
@@ -111,7 +104,6 @@ defaultConfigButton.addEventListener('click', () => {
     rotationSpeed = config.controls.initialRotationSpeed;
 });
 
-// Генерируем опции для выбора шрифтов
 fonts.forEach(font => {
     const option = document.createElement('option');
     option.value = `16px ${font}`;
@@ -120,7 +112,7 @@ fonts.forEach(font => {
 });
 
 fontSelector.addEventListener('change', (event) => {
-    currentFont = event.target.value; // Устанавливаем новый шрифт
+    currentFont = event.target.value;
 });
 
 function resetPage() {
@@ -130,7 +122,6 @@ function resetPage() {
 resetPageButton.addEventListener('click', resetPage);
 
 function animateBackgroundAlpha() {
-    // Рассчитываем изменение альфа-канала
     if (increasing) {
         alpha += 0.01;
         if (alpha >= 1) {
@@ -145,14 +136,11 @@ function animateBackgroundAlpha() {
         }
     }
 
-    // Обновляем цвет фона канваса
     config.canvas.backgroundColor = `rgba(0, 0, 0, ${alpha})`;
 
-    // Запускаем следующую итерацию анимации
     requestAnimationFrame(animateBackgroundAlpha);
 }
 
-// Запускаем анимацию
 animateBackgroundAlpha();
 
 function getRandomLineWidth() {
@@ -231,13 +219,11 @@ audioFileInput.addEventListener('change', function(event) {
 
                 const currentTime = performance.now();
 
-                // Проверка на превышение порога дБ
                 if (averageVolume > config.audio.dbThreshold && currentTime > radiusShrinkEndTime) {
                     targetRadius = baseRadius * config.audio.radiusShrinkFactor;
                     radiusShrinkEndTime = currentTime + config.audio.radiusShrinkDuration;
                 }
 
-                // Постепенное восстановление радиуса
                 if (currentTime > radiusShrinkEndTime) {
                     targetRadius += (baseRadius - targetRadius) * config.audio.smoothing;
                 }
@@ -250,7 +236,6 @@ audioFileInput.addEventListener('change', function(event) {
                     nextLineWidthInterval = getRandomLineWidthInterval();
                 }
 
-                // Плавное изменение толщины линии
                 currentLineWidth += (targetLineWidth - currentLineWidth) * config.canvas.lineWidthChangeSpeed;
 
                 if (currentTime - lastSharpTurnTime > nextSharpTurnInterval) {
