@@ -4,7 +4,7 @@ export const config = {
         height: 700,
         backgroundColor: 'rgba(0, 0, 0)',
         lineWidthMin: 1,
-        lineWidthMax: 15,
+        lineWidthMax: 5,
         lineWidthChangeSpeed: 0.05,
         lineWidthIntervalMin: 100,
         lineWidthIntervalMax: 300,
