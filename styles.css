@@ -1,0 +1,222 @@
+body {
+    position: relative;
+    margin: 0;
+    height: 100vh;
+
+    font-family: "Outfit", serif;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+}
+
+canvas{ 
+    position:absolute; 
+    top:0;bottom:0;right:0;left:0; 
+    margin:auto; 
+} 
+
+.settings {
+    background-color: white;
+    z-index: 10;
+    width: 100%;
+    position: absolute;
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.settings-section {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(199, 199, 199);
+}
+
+.settings-block {
+    flex: 1;
+    height: 100%;
+    padding: 0px 25px 0px 25px;
+    display: flex;
+    align-items: center;
+}
+
+.canvas-container {
+    position: relative;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.canvas-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    color: white;
+    display: flex;
+    gap: 25px;
+}
+
+.canvas-bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: black;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    display: inline-block;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #222222;
+    color: white;
+    border-radius: 4px;
+    border: none;
+    font-family: "Outfit", serif;
+}
+
+button:hover {
+    background-color: #161616;
+}
+
+button:active {
+    background-color: #0e0e0e;
+}
+
+.custom-file-upload:hover {
+    background-color: #006de2;
+}
+
+.custom-file-upload:active {
+    background-color: #005dc0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#audioList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#audioList li {
+    padding: 5px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+#audioList li:hover {
+    background-color: #e0e0e0;
+}
+
+a {
+    color: white;
+}
+
+#hideSettings {
+    font-size: 13px;
+    color: white;
+    position: absolute;
+    margin: 0px 0px 0px 25px;
+    bottom: -25px;
+}
+
+#hideSettings:hover {
+    cursor: pointer;
+}
+
+#showSettings {
+    font-size: 13px;
+    color: white;
+    margin-left: 25px;
+    position: absolute;
+    z-index: 6;
+}
+
+#showSettings:hover {
+    cursor: pointer;
+}
+
+select {
+    border-radius: 0px;
+    height: 25px;
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+@media (max-width: 1020px) {
+    .settings-block {
+        padding: 0px 10px 0px 10px;
+    }
+}
+
+@media (max-width: 900px) {
+    .settings-block {
+        padding: 0px 10px 0px 10px;
+    }
+
+    canvas {
+        width: 500px;
+    }
+
+    .section1 {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    #custom-file-upload-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-row: span 3;
+    }
+
+    .section2 {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    canvas {
+        width: 300px;
+    }
+
+    .section1 {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr;
+    }
+}

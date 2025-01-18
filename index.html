@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Visualizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Prata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <p id="showSettings">Show Settings</p>
+    
+    <div id="settings" class="settings">
+        <div class="settings-section section1">
+            <div class="settings-block">
+                <label>
+                    <p>Volume:</p>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+                </label>
+            </div>
+            <div class="settings-block">
+                <label>
+                    <p>Circle Size:</p>
+                    <input type="range" id="radiusSlider" min="1" max="200" step="1" value="1">
+                </label>
+            </div>
+            <div class="settings-block">
+                <label>
+                    <p>Rotation Speed:</p>
+                    <input type="range" id="rotationSpeedSlider" min="0" max="0.1" step="0.001" value="0.01">
+                </label>
+            </div>
+            <div class="settings-block">
+                <label>
+                    Show Track Name
+                    <input type="checkbox" id="showTrackName" checked>
+                </label>
+            </div>
+            <div class="settings-block">
+                <label>Font:
+                    <select id="fontSelector"></select>
+                </label>
+            </div>
+        </div>
+        
+        <div class="settings-section section2">
+            <div class="settings-block" id="custom-file-upload-block">
+                <label class="custom-file-upload">
+                    Upload file
+                    <input type="file" id="audioFile" accept="audio/*">
+                </label>
+            </div>
+            <div class="settings-block">
+                <button id="playPauseButton">Pause</button>
+            </div>
+            <div class="settings-block">
+                <button id="defaultConfigButton">Default Configurations</button>
+            </div>  
+            <div class="settings-block">
+                <button id="resetPageButton">Reset Page</button>
+            </div>
+        </div>
+
+        <p id="hideSettings">Hide Settings</p>
+    </div>
+    
+    <div class="canvas-container">
+        <div class="canvas-bg"></div>
+        <canvas id="visualizer" width="800" height="400"></canvas>
+        <footer class="canvas-footer">
+            <p>© 2024 Qewzdl Despayer</p>
+            <p><a href="https://github.com/qewzdl/qewzdl-echo">GitHub</a></p>
+        </footer>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
